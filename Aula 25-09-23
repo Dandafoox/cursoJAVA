@@ -46,7 +46,9 @@ public class Mediaescolar {
        if (media>=6){
            System.out.println("Aluno aprovado - Media =" +media);
 
-Uso do else if
+Uso do else if, pode ser usado de duas formas: 
+
+primeira:
 
        if (media>=6){
            System.out.println("Aluno aprovado - Media =" +media);
@@ -57,3 +59,242 @@ Uso do else if
        else{
            System.out.println("Aluno reprovado - Media = "+media);
        } 
+
+segunda:
+
+
+       if (media <3){
+           System.out.println("Aluno Reprovado");
+       }
+       else if (media <=5.9) {
+           System.out.println("Aluno de recuperacao");
+       }
+       else {
+           System.out.println("Aluno Aprovado");
+       }
+}}
+
+
+
+Mais exemplos de else if
+
+        Scanner sc = new Scanner(System.in);
+        
+        String nome;
+        int idade;
+        
+        System.out.println("Digite nome da criança: ");
+          nome = sc.next();
+          
+          System.out.println("Digite a idade da criança");
+          idade = sc.nextInt();
+          
+          if (idade <=2){
+              System.out.println("Encaminhar para o berçário");
+          } else if (idade<=4){
+              System.out.println("Encaminhar para o Infantil A");
+          } else if (idade<=5){
+              System.out.println("Encaminhar para o Infantil B");
+          } else if (idade<=6){
+              System.out.println("Encaminhar para o Infantil C");
+       } else {
+              System.out.println("Criança fora da Tabela");
+          }          
+          
+    }}
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package mediaescolar;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author 16128972023.1
+ */
+public class infantil {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner sc = new Scanner(System.in);
+        
+        String nome;
+        int idade;
+        
+        System.out.println("Digite nome da criança: ");
+          nome = sc.next();
+          
+          System.out.println("Digite a idade da criança");
+          idade = sc.nextInt();
+          
+          if (idade <=2){
+              System.out.println("A Crianca " +nome+ " Deve ser encaminhada para o Berçario");
+          } else if (idade<=4){
+              System.out.println("A Crianca " +nome+ " Deve ser encaminhada para o Infantil A");
+          } else if (idade<=5){
+              System.out.println("A Crianca " +nome+ " Deve ser encaminhada para o Infantil B");
+          } else if (idade<=6){
+              System.out.println("A Crianca " +nome+ " Deve ser encaminhada para o Infantil C");
+       } else {
+              System.out.println("A Criança fora da Tabela");
+          }          
+          
+    }}
+
+
+
+
+
+Atividade de IMC:
+
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package mediaescolar;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author 16128972023.1
+ */
+public class imc {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner sc = new Scanner(System.in);
+        
+        String nome, classi;
+        Double idade, peso, altura,imc;
+        
+        System.out.println("Digite seu nome:");
+        nome = sc.next();
+        
+        System.out.println("Digite sua idade:");
+        idade = sc.nextDouble();
+        
+        System.out.println("Digite seu peso:");
+        peso = sc.nextDouble();
+        
+                
+        System.out.println("Digite sua altura:");
+        altura = sc.nextDouble();
+        
+        imc = peso/(altura*altura);
+        
+             
+        if (imc<18.5){
+           classi = "Abaixo do peso normal";
+       }
+       else if (imc <=24.9){
+            classi = "Peso normal";
+       } 
+       else if (imc <=29.9)
+       {
+           classi = "Excesso de Peso";
+       } 
+       else if (imc <=34.9){
+           classi = "Obesidade classe l";       
+       }
+       else if (imc <=39.9){
+          classi = "Obesidade classe 2";       
+       } 
+       else {
+          classi = "Obesidade classe 3";       
+       } 
+        
+        
+          System.out.println("Nome:" +nome+"");
+          System.out.println("Idade:" +idade+"");
+          System.out.println("Peso:" +peso+"");
+          System.out.println("Altura:" +altura+"");
+          System.out.println("Seu Imc é :" +imc+"");
+          System.out.println("Sua classificação é :" +classi+"");
+       }}
+
+
+
+Mais uma forma 
+
+
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package mediaescolar;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author 16128972023.1
+ */
+public class imc2 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner sc = new Scanner(System.in);
+        
+        String nome, classi;
+        Double peso, altura,imc;
+        int idade;
+                
+        System.out.println("Digite seu nome:");
+        nome = sc.next();
+        
+        System.out.println("Digite sua idade:");
+        idade = sc.nextInt();
+        
+        System.out.println("Digite seu peso:");
+        peso = sc.nextDouble();        
+                
+        System.out.println("Digite sua altura:");
+        altura = sc.nextDouble();
+        
+        imc = peso/(altura*altura);
+        
+             
+        if (imc<18.5){
+           classi = "Abaixo do peso normal";
+       }
+       else if (imc <=24.9){
+            classi = "Peso normal";
+       } 
+       else if (imc <=29.9)
+       {
+           classi = "Excesso de Peso";
+       } 
+       else if (imc <=34.9){
+           classi = "Obesidade classe l";       
+       }
+       else if (imc <=39.9){
+          classi = "Obesidade classe 2";       
+       } 
+       else {
+          classi = "Obesidade classe 3";       
+       } 
+        
+        
+          System.out.println("Nome: " +nome+ " Idade: " +idade);
+          System.out.println("Peso: " +peso+ " Altura: " +altura);
+          System.out.println("Seu IMC é = " +imc);
+          System.out.println("Sua classificicao foi: " +classi);
+
+       }}
+
+
