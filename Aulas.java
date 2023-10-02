@@ -297,9 +297,212 @@ public class imc2 {
 
        }}
 
-
-
-
-
 REPETIÇÃO = for (int i=1;i<=3;i++){
+
+
+
+AULA 02/10/2023: SEGUNDA-FEIRA
+
+https://dontpad.com/mulheresjava
+
+
+
+REPETIÇÃO
+
+EXERCICIO:3
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package aula0210;
+
+import java.util.Scanner;
+
+public class Aula0210 {
+
+//Leia o nome de 5 usuários e depois imprima
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+              
+        String nome;
+        
+        for(int i=1;i<=5;i++){
+            System.out.println ("Digite Seu nome:");
+            nome=sc.next();
+            System.out.println ("Nome " +i+ " = "+nome);
+        }
+    }
+    
+}
+
+
+
+//Leia o nome de 5 usuários em vetor e ao final imprima todos os nomes na tela.
+
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package aula0210;
+
+import java.util.Scanner;
+
+
+
+public class vetor1 {
+
+//Leia o nome de 5 usuários em vetor e ao final imprima todos os nomes na tela.
+    
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+              
+        String nome[]= new String[5];
+        
+        for(int i=0;i<=4;i++){
+            System.out.println ("Digite Seu nome:");
+            nome[i] = sc.next();
+           }
+        
+        for(int i=0;i<=4;i++){
+         System.out.println ("Nome " +(i+1)+ " = "+nome[i]);
+        }
+    }
+    
+}
+
+
+//Leia 10 numeros inteiros e ao final mostre os números lidos.
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package aula0210;
+
+import java.util.Scanner;
+
+
+
+public class vetor2 {
+
+//Leia 10 numeros inteiros e ao final mostre os números lidos.
+    
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+     
+      int numero[] = new int[10];
+      
+      for (int i=0;i<=9;i++){
+          System.out.println("Digite numero:");
+          numero[i] = sc.nextInt();
+      }
+      
+      for (int i=0;i<=9;i++){
+          System.out.println("Numero na posicao["+(i+1)+"]= "+numero[i]);
+          
+      }
+      
+      
+    }
+    
+}
+
+
+    
+//Leia o nome e a idade de 5 pessoas em vetor. Ao final mostrar o nome e a idade de todos.
+
+
+    /*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package aula0210;
+
+import java.util.Scanner;
+
+
+
+public class vetor3 {
+
+//Leia o nome e a idade de 5 pessoas em vetor. Ao final mostrar o nome e a idade de todos.
+    
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+     
+         
+      int idade[] = new int[5];
+      String nome[] = new String[5];
+      
+       for (int i=0;i<=4;i++){
+          System.out.println("Digite Nome:");
+          nome[i] = sc.next();
+          
+          System.out.println("Digite sua idade:");
+          idade[i] = sc.nextInt();
+        }
+       
+        for (int i=0;i<=4;i++){
+          System.out.println("Nome:" +(i+1)+ "="  +nome[i]+ "  Idade:" +(i+1)+ " = " +idade[i]);
+          
+          //  OUTRA FORMA DE ESCREVER
+          // for(int i=0;i<=4;i++){  
+          // System.out.println("********Dados da "+(i+1)+"a Pessoa****** ");
+          // System.out.println("Nome = "+nome[i]);
+          // System.out.println("Idade = "+idade[i]);      
+       }   
+         
+      }
+    }
+    
+}
+
+//Leia 9 números inteiros em uma matriz 3 x 3. Ao final imprima os valores armazenados.
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package aula0210;
+
+import java.util.Scanner;
+
+
+public class Matriz1  {
+
+// bidimensional, usa linhas e colunas. Dimensional, só linhas.
+    
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      
+      int numeros[][] = new int [3][3]; //primeiro colchetes sempre é linha
+      
+      for (int i=0;i<=2;i++){
+          for (int j=0;j<=2;j++){
+              System.out.println("Digite o Numero:");
+              numeros[i][j]= sc.nextInt();
+          }      
+      }
+        
+      //fora do for pra não repetir, tudo que tá dentro do for é repetido.
+     System.out.println("Numeros armazenados na Matriz de Dados");
+        
+        
+       for (int i=0;i<=2;i++){
+           System.out.println(""); //para pular linha
+          for (int j=0;j<=2;j++){
+              System.out.print (numeros[i][j]+" "); //ln é de line. Para dar espaço entre os num é só dá espaço dentro das aspas
+            }
+       }
+
+        
+    }
+    
+}
+
+
+
+
+
 
