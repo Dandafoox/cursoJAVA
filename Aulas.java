@@ -1,8 +1,8 @@
-AULA JAVA -25/09/2023
+// AULA JAVA -25/09/2023
 
-Alt+enter = add classe (importar)
-Escrever sout e apertar tab para escrever System.ou.Println
-Scanner = para fazer pergunta
+//Alt+enter = add classe (importar)
+//Escrever sout e apertar tab para escrever System.ou.Println
+//Scanner = para fazer pergunta
 
 Atividade:
 
@@ -46,9 +46,9 @@ public class Mediaescolar {
        if (media>=6){
            System.out.println("Aluno aprovado - Media =" +media);
 
-Uso do else if, pode ser usado de duas formas: 
+//Uso do else if, pode ser usado de duas formas: 
 
-primeira:
+//primeira:
 
        if (media>=6){
            System.out.println("Aluno aprovado - Media =" +media);
@@ -60,7 +60,7 @@ primeira:
            System.out.println("Aluno reprovado - Media = "+media);
        } 
 
-segunda:
+//segunda:
 
 
        if (media <3){
@@ -76,7 +76,7 @@ segunda:
 
 
 
-Mais exemplos de else if
+//Mais exemplos de else if
 
         Scanner sc = new Scanner(System.in);
         
@@ -151,7 +151,7 @@ public class infantil {
 
 
 
-Atividade de IMC:
+//Atividade de IMC:
 
 
 /*
@@ -225,7 +225,7 @@ public class imc {
 
 
 
-Mais uma forma 
+//Mais uma forma 
 
 
 
@@ -297,11 +297,11 @@ public class imc2 {
 
        }}
 
-REPETIÇÃO = for (int i=1;i<=3;i++){
+//REPETIÇÃO = for (int i=1;i<=3;i++){
 
 
 
-AULA 02/10/2023: SEGUNDA-FEIRA
+//AULA 02/10/2023: SEGUNDA-FEIRA
 
 https://dontpad.com/mulheresjava
 
@@ -501,8 +501,168 @@ public class Matriz1  {
     
 }
 
+//1) Desenvolva um programa que guarde 10 números inteiros em uma matriz 5 x 2. Ao final mostrar o dobro dos números que foram armazenados; ou seja; se foi digitado o número 2 imprima :
+//Dobro de 2 = 4
+
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package aula0210;
+
+import java.util.Scanner;
 
 
 
+public class Matriz2  {
+
+
+    
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      
+      int numeros[][] = new int [5][2]; 
+      
+      for (int i=0;i<=4;i++){
+          for (int j=0;j<=1;j++){
+              System.out.println("Digite o Numero:");
+              numeros[i][j]= sc.nextInt();
+          }      
+      }
+
+     System.out.println("O dobro dos numeros na Matriz de Dados");
+        
+       for (int i=0;i<=4;i++){
+           System.out.println(""); //para pular linha
+          for (int j=0;j<=1;j++){
+              System.out.print ("O dobro de: " +numeros[i][j]+ " e = " +numeros[i][j]*2+" ");
+              
+            } 
+       }
+
+    }
+    
+}
+
+// Desenvolva um programa que guarde 5 números inteiros em um vetorA. ao final mostrar o dobro dos números que foram armazenados; ou seja; se foi digitado o número 2 imprima :
+//Dobro de 2 = 4
+
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package aula0210;
+
+import java.util.Scanner;
+
+
+
+public class vetor4 {
+
+//Leia 10 numeros inteiros e ao final mostre os números lidos.
+    
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+     
+      int numero[] = new int[5];
+                         
+      for (int i=0;i<=4;i++){
+          System.out.println("Digite numero: ");
+          numero[i] = sc.nextInt();
+      }
+      
+      for (int i=0;i<=4;i++){
+          System.out.println("O Dobro: ["+(i+1)+"] "+numero[i]+" = "+numero[i]*2);
+          
+      }
+      
+      
+    }
+    
+}
+
+//correção da professora
+
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package aula0210;
+
+import java.util.Scanner;
+
+
+public class Matriz3  {
+
+    
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      
+      int matriz[][] = new int [5][2]; 
+      int dobro[][] = new int[5][2]; 
+      
+      for (int i=0;i<=4;i++){
+          for (int j=0;j<=1;j++){
+              System.out.println("Digite o Numero:");
+              matriz[i][j]= sc.nextInt();
+              dobro[i][j] = matriz [i][j]*2;
+          }      
+      }
+      //fora do for pra não repetir, tudo que tá dentro do for é repetido.
+     System.out.println("O dobro dos numeros na Matriz de Dados");
+        
+       for (int i=0;i<=4;i++){
+        System.out.println(""); // para pular linha
+          for (int j=0;j<=1;j++){
+          System.out.print ("O dobro de: " +matriz[i][j]+ " e = " +dobro[i][j]+" ");
+              
+            } 
+       }
+
+    }
+    
+}
+
+
+//corregido pela professora
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package aula0210;
+
+import java.util.Scanner;
+
+
+
+public class vetor4 {
+
+
+    
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+     
+      int numero[] = new int[5];
+       //int dobro[] = new int[5];   
+       
+      for (int i=0;i<=4;i++){
+          System.out.println("Digite numero: ");
+          numero[i] = sc.nextInt();
+          //dobro[i]= numero[i]*2;
+      }
+      
+      for (int i=0;i<=4;i++){
+          System.out.println("O Dobro: ["+(i+1)+"] "+numero[i]+" = "+numero[i]*2);
+          // System.out.println("O Dobro: " +vetor[i]+ "= "+dobro[i]);
+      }
+      
+      
+    }
+    
+}
 
 
