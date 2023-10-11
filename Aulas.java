@@ -674,6 +674,8 @@ public class vetor4 {
 package Controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -687,6 +689,7 @@ import model.Cliente;
  */
 
 @WebServlet({"/ClienteController","/novocliente"}) // rota para chamar os outros. Tomcat nove já vem com a rota
+
 public class ClienteController extends HttpServlet { //chamar a classe
 	
 	
@@ -710,23 +713,34 @@ public class ClienteController extends HttpServlet { //chamar a classe
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		String acao = request.getServletPath();
+		if (acao.equals ("/novocliente")) {
+			 EnviaDados(request,response);
+		} 
 	}
 	
 	protected void EnviaDados(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { //classe
 		 cli.setIdcliente(Integer.parseInt (request.getParameter("idcliente"))); // request = requisição, Integer.paserInt para modificar letra pra numero, conversor.
 		 cli.setNome(request.getParameter("nome"));
 		 cli.setTelefone(request.getParameter("telefone"));
+		 
+		 PrintWriter pw = response.getWriter(); // PARA MOSTRAR/CHAMAR NA TELA
+		 pw.println (cli.getNome());
 	}
 
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
 }
+
 
 // model
 
@@ -829,9 +843,36 @@ public class Cliente {
 		</form>
 </div>
 
-
+// <----BOTSTRAP--->
+	
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
+	                                                          // AULA 11/10/2023 //
+
+
+// CONTINUAÇÃO DO CÓDIGO ACIMA, IREMOS FAZER A LIGAÇÃO COM O BANCO DE DADOS 
+// GET - PEGA. SET - MANDA
+// Try o que vai acontecer
+// cacth - executa o que está no try, caso der erro. Tratamento de erro. 
+//DAO - DATA ACESS OBJECT - Acesso ao objeto no banco
+// preparedStatement e prepare Statement - um pega e outro executa
+	// ao trabalhar com banco sempre usar Try e cacth (trai e cat)
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
