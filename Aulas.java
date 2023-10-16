@@ -860,11 +860,62 @@ public class Cliente {
 // Try o que vai acontecer
 // cacth - executa o que está no try, caso der erro. Tratamento de erro. 
 //DAO - DATA ACESS OBJECT - Acesso ao objeto no banco
-// preparedStatement e prepare Statement - um pega e outro executa
+// preparedStatement e prepareStatement - um pega e outro executa
 	// ao trabalhar com banco sempre usar Try e cacth (trai e cat)
 
 
 
+                                                         // AULA 16/10/2023 // 
+
+// CADASTRO CLIENTE
+
+	
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Cadastro de Cliente </title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class = "container-fluid"> 
+		<div class = "row">
+			<div class = "col-md-12"> 
+			 	<a href = "buscacliente"><button class = "btn btn-success"> Relatório de Clientes</button></a>
+			</div>
+		</div>
+
+</div>
+
+
+ <div class ="container">
+		
+		<form action = "novocliente">
+			  <div class="form-group">
+			    <label for="idcliente">Código do Cliente</label>
+			    <input type="text" class="form-control" id="" name = "idcliente">
+			  </div>
+			  
+			  <div class="form-group">
+			    <label for="nome"> Nome </label>
+			    <input type="text" class="form-control" id="" name= "nome">
+			  </div>
+			  
+			  <div class="form-group">
+			    <label for="telefone"> Telefone </label>
+			    <input type="text" class="form-control" id="" name="telefone">
+			  </div>
+			  
+			  <div class = "form group">
+			   <input type ="submit" class = "btn btn-primary" value ="Enviar">
+			  </div>
+			  
+		</form>
+</div>
 
 
 
@@ -873,6 +924,264 @@ public class Cliente {
 
 
 
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+// CLIENTE DAO 
+
+
+
+	package model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import util.Conexao;
+
+public class ClienteDao {
+	
+	Connection con;
+	ResultSet rs;
+	
+	public void Salvar(Cliente cli) {
+	try {
+		con = new Conexao().conectar();
+		
+		String sql = "insert into cliente(nome,telefone) values(?,?)";
+		
+		PreparedStatement stmt = con.prepareStatement(sql);
+		
+		stmt.setString(1, cli.getNome());
+		stmt.setString(2, cli.getTelefone());
+		stmt.executeUpdate();
+		
+		stmt.close();
+		
+		
+	}catch (Exception erro) {}
+	
+	}
+
+	
+	public ArrayList<Cliente>Listar(){
+	try {
+		
+		con = new Conexao().conectar();
+		ArrayList <Cliente> clientes = new ArrayList<>();
+		String sql = "select * from cliente";
+		PreparedStatement stmt = con.prepareStatement(sql);
+		rs = stmt.executeQuery();
+		while (rs.next()) {
+			int idcliente = rs.getInt(1);
+			String nome = rs.getString(2);
+			String telefone = rs.getString(3);
+			clientes.add(new Cliente (idcliente,nome, telefone));
+			}
+		
+		return clientes;
+		
+		}
+	catch(Exception erro) {
+			System.out.println (erro);
+			return null;
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+
+
+
+
+// RELCLIENTE
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<meta charset="ISO-8859-1">
+<title>Relatório - Clientes</title>
+</head>
+<body>
+
+<div class = "container">		
+		<table class="table table-striped table-dark">
+		  <thead>
+		  </thead>
+		  <tbody>
+		    <tr>
+		    <tr>
+		      <th scope="col">Código</th>
+		      <th scope="col">Cliente</th>
+		      <th scope="col">Telefone</th>
+		    </tr>
+		      <th scope="row">1</th>
+		      <td>Mark</td>
+		      <td>Otto</td>
+		      
+		    </tr>
+		  </tbody>
+		</table>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+	// CONTROLLER
+
+
+	package Controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import model.Cliente;
+import model.ClienteDao;
+
+/**
+ * Servlet implementation class ClienteController
+ */
+
+@WebServlet({"/ClienteController","/novocliente","buscacliente"}) // rota para chamar os outros. Tomcat nove já vem com a rota
+
+public class ClienteController extends HttpServlet { //chamar a classe
+	
+	
+	Cliente cli= new Cliente();
+	ClienteDao daocli = new ClienteDao ();
+	
+	
+	
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ClienteController() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		String acao = request.getServletPath();
+		if (acao.equals ("/novocliente")) {
+			 EnviaDados(request,response);
+		} else if (acao.equals("/buscacliente")){
+			BuscaDados (request,response);
+		}
+	}
+	
+	protected void EnviaDados(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { //classe
+		 //cli.setIdcliente(Integer.parseInt (request.getParameter("idcliente"))); // request = requisição, Integer.paserInt para modificar letra pra numero, conversor.
+		 cli.setNome(request.getParameter("nome"));
+		 cli.setTelefone(request.getParameter("telefone"));
+		 
+		 daocli.Salvar(cli);
+		 
+
+	}
+	
+	protected void BuscaDados(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ArrayList<Cliente> lista= daocli.Listar();
+		request.setAttribute("clientes", lista);
+		RequestDispatcher rd = request.getRequestDispatcher("RelClientes.jsp");
+		rd.forward (request,response);
+	}
+
+	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
+
+
+
+// CONEXÃO
+
+
+package util;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class Conexao {
+
+	private String driver = "com.mysql.cj.jdbc.Driver";
+	private String url = "jdbc:mysql://127.0.0.1:3306/escritorio";
+	private String user = "root";
+	private String password ="";
+	
+	
+	public Connection conectar() {
+		Connection con = null;
+		
+		try {
+			Class.forName(driver);
+			con = DriverManager.getConnection(url,user,password);
+			return con;
+		} catch (Exception erro) {
+			System.out.println(erro);
+			return null;
+		
+		}
+		
+	}
+}
 
 
 	
