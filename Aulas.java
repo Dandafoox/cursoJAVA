@@ -1184,4 +1184,8 @@ public class Conexao {
 }
 
 
-	
+	// AULA 23/10/2023
+
+// Class - Atributos e metódos. Metodos tem comandos dentros das chaves. Atributos não tem paretenses e metodos sim. Class não é objeto. Estudar JavaScript /Vanila/
+// w3 school - java script - Gustavo Guanabara
+// json - javascript object notation 
