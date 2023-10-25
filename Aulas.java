@@ -1184,8 +1184,56 @@ public class Conexao {
 }
 
 
-	// AULA 23/10/2023
+	// AULA 23/10/2023 - PROFESSOR NOVO - ANDRÉ
 
 // Class - Atributos e metódos. Metodos tem comandos dentros das chaves. Atributos não tem paretenses e metodos sim. Class não é objeto. Estudar JavaScript /Vanila/
 // w3 school - java script - Gustavo Guanabara
 // json - javascript object notation 
+
+
+
+
+
+// AULA 25/10/2023 anotações
+
+
+
+
+
+//** C -create> insert R -read>select U -update>update D -delete>delete
+/* https://drive.google.com/drive/folders/1YwOUXQH44MBLnrKYablQoQnB8dfc1hho
+/* https://drive.google.com/file/d/1ed2QTE0TKrQyDPBdrFr4J3O1SOpWFqMr/view?usp=share_link
+//* ! é o simbolo de não no computador, != - significa diferente
+//* where é onde, somente onde - SQL
+
+//ctrl + shift + f = deixar o codigo certo
+// FAZER BANCO DE DADOS PARA TESTES. dados dos usuarios na cor laranja, pode substiuir por um coringa.
+
+// -- (Re)Cria Banco de Dados de desenvolvimento.
+
+-- Apagar o banco de dados caso ele exista.
+
+DROP DATABASE IF EXISTS escritorio;
+
+-- Criar o banco de dados
+
+CREATE DATABASE escritorio CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci; 
+
+-- Criar tabela advogado.
+
+-- selecionar o banco de dados
+
+USE escritorio;
+
+CREATE TABLE advogado (
+	idadv int primary key auto_increment,
+    dataadv TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- TEMPO/MARCA ATUAL
+    oab VARCHAR(15) UNIQUE NOT NULL, -- UNIQUE -UNICA
+    nome VARCHAR (127) NOT NULL,
+    telefone VARCHAR (31) NOT NULL,
+    statusadv ENUM ("on","off") DEFAULT "on" -- DEFAULT COLOCA AUTOMÁTICAMENTE, ENUM é enumeração, lista de valores possiveis. dentro das opções listadas
+
+);
+UNIX FOI CRIADO O TIMESTAMP EM 1970, SIMPLIFICOU A FORMA DE MEXER NO PC. TODOS OS SISTEMAS HOJE SÃO BASEADOS NO UNIX
+msql transforma pra iso
+*/
