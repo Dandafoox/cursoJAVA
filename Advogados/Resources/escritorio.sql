@@ -13,7 +13,7 @@ USE escritorio;
 
 --criar tabela advogado
 create table advogado(
-  idadvogado INT primary key auto_increment,
+  idadv INT primary key auto_increment,
   dataadv TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
   oab VARCHAR (15) NOT NULL,
   nome VARCHAR (127) NOT NULL,

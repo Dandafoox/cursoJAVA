@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
-
+import java.util.List;
 
 import util.Conexao;
 
@@ -17,7 +17,7 @@ public class ClienteDao {
 
 		try {
 			con = new Conexao().conectar();
-			String sql = "insert into cliente(nome,telefone)values(?,?)";
+			String sql = "insert into cliente(nome,telefone)values(?,?) AND statuscliente = 'on'";
 
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, cli.getNome());
@@ -37,7 +37,7 @@ public class ClienteDao {
 
 			con = new Conexao().conectar();
 			ArrayList<Cliente> clientes = new ArrayList<>();
-			String sql = "select * from cliente";
+			String sql = "select * from cliente where statuscliente='on'";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			rs = stmt.executeQuery();
 
@@ -56,7 +56,57 @@ public class ClienteDao {
 			System.out.println(erro);
 			return null;
 		}
+	}
+
+	public void Apagar(String id) {
+		System.out.println(id);
+		try {
+			con = new Conexao().conectar();
+			String sql = "UPDATE cliente SET statuscliente = 'off' WHERE idcliente = ?";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setString(1, id);
+			stmt.executeUpdate(); // <--------------------------
+			stmt.close();
+			con.close();
+		} catch (Exception erro) {
+			erro.printStackTrace();
+		}
 
 	}
+	
+	
+	public List<Cliente> Editar(String id){
+		
+		List <Cliente> cliente = new ArrayList <>();
+		
+		try {
+			con = new Conexao().conectar();
+			String sql = "SELECT * from cliente WHERE idcliente = ? AND statuscliente = 'on'";
+			PreparedStatement stmt= con.prepareStatement(sql);
+			stmt.setString(1, id);
+			ResultSet rs = stmt.executeQuery();
+			rs.next();
+			
+			int idcliente= rs.getInt("idcliente");
+			Date data = rs.getDate("datacliente");
+			String nome = rs.getString("nome");
+			String telefone = rs.getString("telefone");
+			String status = rs.getString("statuscliente");
+			
+			
+			cliente.add(new Cliente (idcliente, data, nome, telefone, status));
+			
+			
+			
+		} catch (Exception e) {
+			
+			//TODO: handle exception
+		} 
+ 
+		return cliente;
+		
+	}
+	
+	
 
 }

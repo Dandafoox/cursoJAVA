@@ -16,8 +16,7 @@ import model.AdvogadoDao;
 /**
  * Servlet implementation class AdvogadoController
  */
-@WebServlet({ "/AdvogadoController", "/novacausa", "/buscacausa" })
-
+@WebServlet({ "/AdvogadoController", "/novoadvogado", "/buscaadvogados","/apagaradvogado" })
 public class AdvogadoController extends HttpServlet {
 
 	Advogado adv = new Advogado();
@@ -43,30 +42,59 @@ public class AdvogadoController extends HttpServlet {
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
 
 		String acao = request.getServletPath();
-		if (acao.equals("/novacausa")) {
-			EnviaDadosAdv(request, response);
-		} else if (acao.equals("/buscacausa")) {
-			BuscaDadosAdv(request, response);
+		
+		if (acao.equals("/novoadvogado")) {
+			EnviaDados(request, response);
+		} else if (acao.equals("/buscaadvogados")) {
+			BuscaDados(request, response);
+		} else if (acao.equals("/apagaradvogado")) {
+			ApagaDados (request,response);
 		}
 	}
 
-	protected void EnviaDadosAdv(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException { // classe
-		adv.setOab(Integer.parseInt(request.getParameter("oab")));
+	protected void EnviaDados(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		adv.setOab(request.getParameter("oab"));
 		adv.setNome(request.getParameter("nome"));
 		adv.setTelefone(request.getParameter("telefone"));
-		adv.setTipocausas(request.getParameter("tipocausas"));
-		;
 		daoadv.Salvar(adv);
+		request.setAttribute("success", "Cadastro Concluído!");
+		request.getRequestDispatcher("buscaadvogados").forward(request, response);
 	}
+	
+	
+	
 
-	protected void BuscaDadosAdv(HttpServletRequest request, HttpServletResponse response)
+	protected void BuscaDados(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		ArrayList<Advogado> lista = daoadv.Listar();
-		request.setAttribute("advogado", lista);
+		
+		String success = (String) request.getAttribute("success");
+		
+		if(success != null) {
+			request.setAttribute ("success", success);
+		}
+		
+		request.setAttribute("advogados", lista);
 		RequestDispatcher rd = request.getRequestDispatcher("RelAdvogado.jsp");
 		rd.forward(request, response);
+
 	}
+	
+	
+	protected void ApagaDados(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String id = request.getParameter("id");
+		daoadv.Apagar(id);
+		request.setAttribute("success","Advogado apagado com sucesso");
+		request.getRequestDispatcher("buscaadvogados").forward(request,response);
+		
+		System.out.println (request.getParameter("id"));
+		
+	}
+		
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse

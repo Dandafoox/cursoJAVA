@@ -1,57 +1,77 @@
 package model;
 
+import java.util.Date;
+
 public class Advogado {
-	private int oab;
-	private String Nome;
-	private String Telefone;
-	private String tipocausas;
-	
+
+	private int idadv;
+	private Date data;
+	private String oab;
+	private String nome;
+	private String telefone;
+	private String status;
+
 	public Advogado() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Advogado(int oab, String nome, String telefone, String tipocausas) {
+
+	public Advogado(int idadv, Date data, String oab, String nome, String telefone, String status) {
 		super();
+		this.idadv = idadv;
+		this.data = data;
 		this.oab = oab;
-		Nome = nome;
-		Telefone = telefone;
-		this.tipocausas = tipocausas;
+		this.nome = nome;
+		this.telefone = telefone;
+		this.status = status;
 	}
 
-	
+	public int getIdadv() {
+		return idadv;
+	}
 
-	public int getOab() {
+	public void setIdadv(int idadv) {
+		this.idadv = idadv;
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+	public String getOab() {
 		return oab;
 	}
 
-	public void setOab(int oab) {
+	public void setOab(String oab) {
 		this.oab = oab;
 	}
 
 	public String getNome() {
-		return Nome;
+		return nome;
 	}
 
 	public void setNome(String nome) {
-		Nome = nome;
+		this.nome = nome;
 	}
 
 	public String getTelefone() {
-		return Telefone;
+		return telefone;
 	}
 
 	public void setTelefone(String telefone) {
-		Telefone = telefone;
+		this.telefone = telefone;
 	}
 
-	public String getTipocausas() {
-		return tipocausas;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setTipocausas(String tipocausas) {
-		this.tipocausas = tipocausas;
+	public void setStatus(String status) {
+		this.status = status;
 	}
-	
-	
 
 }

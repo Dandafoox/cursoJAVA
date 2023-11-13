@@ -16,58 +16,67 @@
 <body>
 
 	<div class="container mt-3">
-		<form action="novacausa">
-		
-	<ul class="nav nav-tabs mt-3">
-	  <li class="nav-item">
-		    <a class="nav-link active" href="index.jsp">  Início </a>
-		  </li>
-		  <li class="nav-item">
-		    <a class="nav-link" href="CadAdvogado.jsp">Cadastro Advogado</a>
-		  </li>
-		  <li class="nav-item">
-		    <a class="nav-link" href="CadCliente.jsp">Cadastro Cliente</a>
-		  </li>
-	</ul>
-			<div class="card mt-3">
-				<h5 class="card-header">Cadastro Advogado</h5>
-				<div class="card-body">
-					<div class="form-group shadow-sm p-3 mb-5 bg-white rounded">
-						<label for="oab"> Oab</label> <input type="text"
-							class="form-control" id="" name="oab">
-					</div>
-				
-					<div class="form-group shadow-sm p-3 mb-5 bg-white rounded">
-						<label for="nome">Nome</label> <input type="text"
-							class="form-control" id="formGroupExampleInput2" name="nome">
-					</div>
+		<form action="novoadvogado">
 
-					<div class="form-group shadow-sm p-3 mb-5 bg-white rounded">
-						<label for="telefone">Telefone</label> <input type="text"
-							class="form-control" id="formGroupExampleInput2" name="telefone">
-					</div>
-					<div class="form-group shadow-sm p-3 mb-5 bg-white rounded">
-						<label for="tipocausas">Tipo de Causas</label> <input type="text"
-							class="form-control" id="formGroupExampleInput2"
-							name="tipocausas">
-					</div>
 
-					<div class="form-group shadow-sm p-3 mb-5 bg-white rounded" >
-						<input class="btn btn-primary" type="submit" value="Enviar">
+			<div class="my-5">
 
-					</div>
-				</div>
-			</div>
+				<h4>Escritório Soares & Soares - Cadastro</h4>
 
-				<div class="card mt-3">
-					<h5 class="card-header">Relatório de Causas</h5>
+				<div class="my-5">
 
-					<div class="card-body">
-						<h5 class="card-title">Causas</h5>
-						<p class="card-text">Listagem de Causas.</p>
-						<a href="buscacausa" class="btn btn-success">Visitar</a>
-					</div>
-				</div>
+
+
+			<ul class="nav">
+					<li class="nav-item"><a class="nav-link active"
+						href="index.jsp">Início</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="CadAdvogado.jsp">Cadastro Advogado</a></li>
+					<li class="nav-item"><a class="nav-link" href="CadCliente.jsp">Cadastro
+							Cliente</a></li>
+				</ul>
+
+					<div class="my-5">
+
+
+
+						<div class="card mt-3">
+							<h5 class="card-header">Cadastro Advogado</h5>
+							<div class="card-body">
+								<div class="form-group shadow-sm p-3 mb-5 bg-white rounded">
+									<label for="oab"> Oab</label> <input type="text"
+										class="form-control" id="" name="oab">
+								</div>
+
+								<div class="form-group shadow-sm p-3 mb-5 bg-white rounded">
+									<label for="nome">Nome</label> <input type="text"
+										class="form-control" id="formGroupExampleInput2" name="nome">
+								</div>
+
+								<div class="form-group shadow-sm p-3 mb-5 bg-white rounded">
+									<label for="telefone">Telefone</label> <input type="text"
+										class="form-control" id="formGroupExampleInput2"
+										name="telefone">
+								</div>
+
+								<div class="form-group shadow-sm p-3 mb-5 bg-white rounded">
+									<input class="btn btn-primary" type="submit" value="Enviar">
+
+								</div>
+							</div>
+						</div>
+
+					<div class="my-5">
+					
+						<div class="card mt-3">
+							<h5 class="card-header">Relatório de Advogados</h5>
+
+							<div class="card-body">
+								<h5 class="card-title">Advogados</h5>
+								<p class="card-text">Listagem de Advogados.</p>
+								<a href="buscaadvogados" class="btn btn-success">Visitar</a>
+							</div>
+						</div>
 		</form>
 	</div>
 
